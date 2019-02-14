@@ -1,3 +1,4 @@
+// For Registration
 function entry_check(){
   var pass = true,
       message = "";
@@ -27,6 +28,42 @@ function entry_check(){
         window.location = "./login.html";
       } else {
         // REGISTER FAIL
+        alert(res['message']);
+      }
+    });
+  } else {
+    alert("Too bad!");
+  }
+  return false;
+}
+// For Logging in
+function is_user(){
+  var flag = true,
+      message = "";
+
+   // INPUTS CHECK
+  
+  if ($('#password').val() == '') {
+    message += "Your password should not be void" + "\n";
+    flag = false;
+  }
+
+  // AJAX FOR emailaddress validation
+  if (flag) {
+    $.ajax({
+      url : "ajax_login.php",
+      method : "POST",
+      dataType: 'JSON',
+      data : {
+        email : $('#email').val(),
+        password : $('#password').val()
+      }
+    }).done(function(res){
+      if (res['status']) {
+        // User Ok - REDIRECT 
+        window.location = "./success.php";
+      } else {
+        // User not identified
         alert(res['message']);
       }
     });

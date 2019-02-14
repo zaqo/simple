@@ -46,12 +46,11 @@ class Users{
   // DO YOUR FORM CHECKS SOMEWHERE ELSE FIRST!
   // $data must in the array format of name, email, password
 
-    // THIS IS RAW BASIC PROTECTION FOR THE PASSWORD
+    // THIS IS RATHER BASIC PROTECTION FOR THE PASSWORD
 
     $data['2'] = md5($data['2']);
 
-    // USING THE DATA FIELD AS A RANDOM CONFIRMATION KEY
-    //$data['3'] = md5(date("YmdHis"));
+   
 
     // INSERT INTO DATABASE
     $stmt = $this->pdo->prepare("INSERT INTO `users` (`user_name`, `email`, `user_password`) VALUES (?, ?, ?)");
@@ -66,7 +65,7 @@ class Users{
     // SEND COINFIRMATION EMAIL IF PASS
     if ($pass) {
       // CHANGE YOUR URL & MESSAGE HERE
-      $msg = "Enter the confirmation URL in your web browser to complete the registration - http://yoursite.com/confirm.php?id=".$this->pdo->lastInsertId()."&h=".$data['3'];
+      $msg = "Enter the confirmation URL in your web browser to complete the registration - http://yoursite.com/confirm.php?id=".$this->pdo->lastInsertId()."&h=".$data['2'];
 
       // SEND EMAIL
       @mail($data['1'], "Confirm your email", $msg);
