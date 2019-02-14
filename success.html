@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RSS Page</title>
+  <meta  http-equiv="Content-Type" content="text/html; charset=utf8">
+  <link rel="stylesheet" type="text/css" href="./css/simple.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="./js/validate.js"></script>
+</head>
+<body>
+  <!-- [HEADER] -->
+  <header id="header"></header>
+
+  <!-- [BODY] -->
+  <div id="body">
+    <h3>Here comes the news</h3>
+<?php
+		$domOBJ = new DOMDocument();
+		$domOBJ->load("https://www.delfi.lv/rss/?channel=delfi ");//XML page URL
+ 
+		$content = $domOBJ->getElementsByTagName("item");
+ 
+		foreach( $content as $data )
+		{
+			$title = $data->getElementsByTagName("title")->item(0)->nodeValue;
+			$link = $data->getElementsByTagName("link")->item(0)->nodeValue;
+			echo "$title :: $link \n";
+		}
+?>
+  </div>
+
+  <!-- [FOOTER] -->
+  <footer id="footer">
+    
+    2019 &copy; Copyright S.Pavlov 
+  </footer>
+</body>
+</html>
