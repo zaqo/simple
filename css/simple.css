@@ -1,0 +1,30 @@
+html, body{
+  font-family: arial;
+}
+#header, #body, #footer{
+  padding: 10px;
+}
+#header{
+  background: #d4e0f7;
+}
+#body{
+  background: #dff9d4;
+}
+input{
+  margin: 5px;
+}
+input[type=text], input[type=email], input[type=password]{
+  padding: 5px;
+}
+input[type=submit]{
+  padding: 10px;
+  background: #a32231;
+  margin: 20 px;
+  color: #fff;
+  border-radius: 15px;
+  border: 2px solid white;
+}
+#footer{
+  background: #d4e0f7;
+  font-size: small;
+}
