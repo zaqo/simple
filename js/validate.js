@@ -10,7 +10,7 @@ function entry_check(){
     pass = false;
   }
 
-  // AJAX FOR emailaddress validation
+  // AJAX FOR email address validation
   if (pass) {
     $.ajax({
       url : "ajax_verif.php",
@@ -23,47 +23,13 @@ function entry_check(){
         cpassword : $('#cpassword').val()
       }
     }).done(function(res){
-      if (res['status']) {
+      
+	  if (res['status']) {
         // REGISTER OK - REDIRECT 
-        window.location = "./login.html";
+		
+        window.location.replace("login.php");
       } else {
         // REGISTER FAIL
-        alert(res['message']);
-      }
-    });
-  } else {
-    alert("Too bad!");
-  }
-  return false;
-}
-// For Logging in
-function is_user(){
-  var flag = true,
-      message = "";
-
-   // INPUTS CHECK
-  
-  if ($('#password').val() == '') {
-    message += "Your password should not be void" + "\n";
-    flag = false;
-  }
-
-  // AJAX FOR emailaddress validation
-  if (flag) {
-    $.ajax({
-      url : "ajax_login.php",
-      method : "POST",
-      dataType: 'JSON',
-      data : {
-        email : $('#email').val(),
-        password : $('#password').val()
-      }
-    }).done(function(res){
-      if (res['status']) {
-        // User Ok - REDIRECT 
-        window.location = "./success.php";
-      } else {
-        // User not identified
         alert(res['message']);
       }
     });

@@ -55,7 +55,7 @@ if ($_POST['password']!=$_POST['cpassword']) {
 }
 
 // IF CHECKS ARE ALL GREEN - GO FOR ACTUAL DATABASE REGISTRATION
-$checks .=$_POST['name'].$_POST['email'].$_POST['password'];
+
 if ($regPass) {
   if (!$pdoUsers->register([$_POST['name'], $_POST['email'], $_POST['password']])) {
     $regPass = false;

@@ -24,6 +24,22 @@ input[type=submit]{
   border-radius: 15px;
   border: 2px solid white;
 }
+.invalidElem {
+ font-family: times,sans-serif;
+ font-size: 80%;
+ font-weight: normal;
+ text-decoration: underline;
+background-color: pink;
+color: red;
+}
+.regElem {
+padding: 10px;
+ font-family: times,sans-serif;
+ font-size: 90%;
+ font-weight: normal;
+background-color: #d4e0f7;
+color: white;
+}
 #footer{
   background: #d4e0f7;
   font-size: small;

@@ -65,10 +65,15 @@ class Users{
     // SEND COINFIRMATION EMAIL IF PASS
     if ($pass) {
       // CHANGE YOUR URL & MESSAGE HERE
-      $msg = "Enter the confirmation URL in your web browser to complete the registration - http://yoursite.com/confirm.php?id=".$this->pdo->lastInsertId()."&h=".$data['2'];
+      $msg = "Enter the confirmation URL in your web browser to complete the registration - http://somewhere.com/confirm.php?id=".$this->pdo->lastInsertId()."&h=".$data['2'];
 
+
+	$msg=$_POST["msg"];
+	$headers = "From: simple@app.it";
+
+	//mail($to,$subject,$msg,$headers);
       // SEND EMAIL
-      @mail($data['1'], "Confirm your email", $msg);
+      @mail($data['1'], "Confirm your email", $msg,$headers);
     }
 	
     return $pass;

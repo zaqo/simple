@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <?php?>
 <html>
 <head>
   <title>LOGIN PAGE</title>
@@ -11,7 +11,7 @@
   <!-- [HEADER] -->
   <header id="header"></header>
   <?php
-  var_dump ($_GET);
+
 if(isset($_GET['command'])) 		$error 	= "Invalid USER ID or Password";
 else $error='';
 ?>
@@ -25,7 +25,7 @@ else $error='';
     <label for="password">Password: </label>
     <input type="password" id="password" name="password" placeholder="Password" required><br>
     <div class="invalidElem">
-									<?php $error ?>
+									<?php echo $error; ?>
 	</div>
     <input type="submit" value="Enter"/>
     </form>
@@ -38,3 +38,4 @@ else $error='';
   </footer>
 </body>
 </html>
+<?php?>
